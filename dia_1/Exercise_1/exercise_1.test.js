@@ -1,4 +1,4 @@
-const { myRemove, myRemoveWithoutCopy, myFizzBuzz } = require('./exercise_1');
+const { myRemove, myRemoveWithoutCopy, myFizzBuzz, obj1, obj2, obj3 } = require('./exercise_1');
 
 // Exercicio 1
 // const sum = require('./exercise_1');
@@ -88,6 +88,17 @@ describe('Testes do Exercicio 4', () => {
     });
 
     test('Fazendo uma chamada com um parâmetro que não é um número e verificando se o retorno é o esperado', () => {
-        expect(myFizzBuzz('9')).toBe(false);
+        expect(myFizzBuzz('9')).toBeFalsy();
+    });
+});
+
+// Exercicio 5
+describe('Testes do Exercicio 5', () => {
+    test('Compare dois objetos (JSON) para verificar se são idênticos ', () => {
+        expect(obj1).toEqual(obj1);
+    });
+
+    test('Compare dois objetos (JSON) para verificar se são idênticos ', () => {
+        expect(obj3).toEqual(obj1);
     });
 });
