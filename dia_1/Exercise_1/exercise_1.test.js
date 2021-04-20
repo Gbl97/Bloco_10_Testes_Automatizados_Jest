@@ -1,4 +1,4 @@
-const { myRemove } = require('./exercise_1');
+const { myRemove, myRemoveWithoutCopy } = require('./exercise_1');
 
 // Exercicio 1
 // const sum = require('./exercise_1');
@@ -44,5 +44,27 @@ describe('Testes do Exercicio 2', () => {
     test('Verifique se a chamada myRemove([1, 2, 3, 4], 5) retorna o array esperado', () => {
         const array = [1, 2, 3, 4];
         expect(myRemove(array, 5)).toEqual([1, 2, 3, 4]);
+    });
+});
+
+// Exercicio 3
+describe('Testes do Exercicio 3', () => {
+    test('Verificando se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) retorna o array esperado', () => {
+        expect(myRemoveWithoutCopy([1, 2, 3, 4], 3)).toEqual([1, 2, 4]);
+    });
+
+    test('Verificando se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) não retorna o array [1, 2, 3, 4]', () => {
+        expect(myRemoveWithoutCopy([1, 2, 3, 4], 3)).not.toEqual([1, 2, 3, 4]);
+    });
+
+    test('Fazendo uma chamada para a função myRemoveWithoutCopy e verifique se o array passado por parâmetro sofreu alterações', () => {
+        const array = [1, 2, 3, 4, 5, 6];
+        myRemoveWithoutCopy(array, 6);
+        expect(array).toEqual([1, 2, 3, 4, 5]);
+    });
+
+    test('Verificando se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 5) retorna o array esperado', () => {
+        const array = [1, 2, 3, 4];
+        expect(myRemoveWithoutCopy(array, 5)).toEqual([1, 2, 3, 4]);
     });
 });
