@@ -95,10 +95,14 @@ describe('Testes do Exercicio 4', () => {
 // Exercicio 5
 describe('Testes do Exercicio 5', () => {
     test('Compare dois objetos (JSON) para verificar se são idênticos ', () => {
-        expect(obj1).toEqual(obj1);
+        expect(obj1).toEqual(obj2);
     });
 
     test('Compare dois objetos (JSON) para verificar se são idênticos ', () => {
-        expect(obj3).toEqual(obj1);
+        expect(obj1).toEqual(obj3);
+    });
+
+    test('Compare dois objetos (JSON) para verificar se não são idênticos ', () => {
+        expect(obj3).not.toHaveProperty('title', 'My Title');
     });
 });

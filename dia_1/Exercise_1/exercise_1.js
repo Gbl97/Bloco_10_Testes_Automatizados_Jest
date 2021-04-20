@@ -63,4 +63,7 @@ module.exports = {
   myRemove,
   myRemoveWithoutCopy,
   myFizzBuzz,
+  obj1,
+  obj2,
+  obj3
 };
