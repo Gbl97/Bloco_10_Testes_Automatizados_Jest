@@ -1,4 +1,4 @@
-const { myRemove, myRemoveWithoutCopy } = require('./exercise_1');
+const { myRemove, myRemoveWithoutCopy, myFizzBuzz } = require('./exercise_1');
 
 // Exercicio 1
 // const sum = require('./exercise_1');
@@ -66,5 +66,28 @@ describe('Testes do Exercicio 3', () => {
     test('Verificando se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 5) retorna o array esperado', () => {
         const array = [1, 2, 3, 4];
         expect(myRemoveWithoutCopy(array, 5)).toEqual([1, 2, 3, 4]);
+    });
+});
+
+// Exercicio 4
+describe('Testes do Exercicio 4', () => {
+    test('Fazendo uma chamada com um número divisível por 3 e 5 e verificando se o retorno é o esperado', () => {
+        expect(myFizzBuzz(15)).toMatch('fizzbuzz');
+    });
+
+    test('Fazendo uma chamada com um número divisível por 3 e verificando se o retorno é o esperado', () => {
+        expect(myFizzBuzz(9)).toMatch('fizz');
+    });
+
+    test('Fazendo uma chamada com um número divisível por 5 e verificando se o retorno é o esperado', () => {
+        expect(myFizzBuzz(25)).toMatch('buzz');
+    });
+
+    test('Fazendo uma chamada com um número divisível por 3 ou 5 e verificando se o retorno é o esperado', () => {
+        expect(myFizzBuzz(8)).toBe(8);
+    });
+
+    test('Fazendo uma chamada com um parâmetro que não é um número e verificando se o retorno é o esperado', () => {
+        expect(myFizzBuzz('9')).toBe(false);
     });
 });
