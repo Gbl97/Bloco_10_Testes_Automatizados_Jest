@@ -1,4 +1,4 @@
-const { uppercase, users, findUserById, getUserName } = require('./exercise.js');
+const { uppercase, users, findUserById, getUserName, fetch, getRepos } = require('./exercise.js');
 
 // Exercicio 1
 test('Verificando se a chamada da função callback transforma letras de uma palavra em maiúsculas', (done) => {
@@ -50,6 +50,21 @@ describe('Teste dos Exercícios 2 e 3', () => {
             } catch (error) {
               expect(error).toEqual({ error: 'User with 6 not found.' });
             }
+        });
+    });
+
+    // Exercicio 4
+    describe('Teste do Exercício 4', () => {
+        test('Testando o 1º Repositório ', async () => {
+           const repositorio_1 = await getRepos('https://api.github.com/orgs/tryber/repos').then(repos => {
+               expect(repos).toContainEqual('sd-01-week4-5-project-todo-list');
+           });
+        });
+
+        test('Testando o 2º Repositório ', async () => {
+            await getRepos('https://api.github.com/orgs/tryber/repos').then(repos => {
+               expect(repos).toContainEqual('sd-01-week4-5-project-meme-generator');
+           });
         });
     });
 });
