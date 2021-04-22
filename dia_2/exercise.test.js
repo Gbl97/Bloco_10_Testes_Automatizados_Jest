@@ -1,4 +1,4 @@
-const { uppercase, users, findUserById, getUserName, fetch, getRepos } = require('./exercise.js');
+const { uppercase, users, findUserById, getUserName, fetch, getRepos, getAnimal } = require('./exercise.js');
 
 // Exercicio 1
 test('Verificando se a chamada da função callback transforma letras de uma palavra em maiúsculas', (done) => {
@@ -72,14 +72,36 @@ describe('Teste do Exercício 4', () => {
 });
 
 // Exercicio 5
-beforeEach(() => console.log('1 - beforeEach'));
-afterEach(() => console.log('1 - afterEach'));
+// beforeEach(() => console.log('1 - beforeEach'));
+// afterEach(() => console.log('1 - afterEach'));
 
-test('', () => console.log('1 - test'));
+// test('', () => console.log('1 - test'));
 
-describe('Scoped / Nested block', () => {
-beforeEach(() => console.log('2 - beforeEach'));
-afterEach(() => console.log('2 - afterEach'));
+// describe('Scoped / Nested block', () => {
+// beforeEach(() => console.log('2 - beforeEach'));
+// afterEach(() => console.log('2 - afterEach'));
 
-test('', () => console.log('2 - test'));
+// test('', () => console.log('2 - test'));
+// });
+
+// Exercicio 6.1
+
+  describe('Testando promise - findAnimalByName', () => {
+    describe('Quando existe o animal com o nome procurado', () => {
+      test('Retorne o objeto do animal', () => {
+        expect.assertions(1);
+        return getAnimal('Dorminhoco').then(animal => {
+          expect(animal).toEqual({ name: 'Dorminhoco', age: 1, type: 'Dog' });
+        });
+      });
+    });
+  
+    describe('Quando não existe o animal com o nome procurado', () => {
+      test('Retorna um erro', () => {
+        expect.assertions(1);
+        return getAnimal('Bob').catch(error =>
+          expect(error).toEqual('Nenhum animal com esse nome!')
+        );
+      });
+    });
 });

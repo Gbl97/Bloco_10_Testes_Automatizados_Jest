@@ -34,7 +34,35 @@ const getRepos = (url) => {
     });
 };
 
-// Exercicio 5
+// Exercicio 6.1
+const Animals = [
+  { name: 'Dorminhoco', age: 1, type: 'Dog' },
+  { name: 'Soneca', age: 2, type: 'Dog' },
+  { name: 'Preguiça', age: 5, type: 'Cat' },
+];
+
+const findAnimalByName = (name) => (
+  // Adicione o código aqui.
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const arrayAnimals = Animals.find((animal) => animal.name === name);
+      if (arrayAnimals) {
+        resolve(arrayAnimals);
+      }
+      reject('Nenhum animal com esse nome!');
+    }, 100);
+  })
+);
+const getAnimal = async (name) => {
+  // Adicione o código aqui.
+  const Animal = await findAnimalByName(name);
+
+  try {
+    return Animal;
+  } catch (error) {
+    return error;
+  }
+};
 
 module.exports = {
     uppercase,
@@ -42,4 +70,5 @@ module.exports = {
     findUserById,
     getUserName,
     getRepos,
+    getAnimal,
 };
