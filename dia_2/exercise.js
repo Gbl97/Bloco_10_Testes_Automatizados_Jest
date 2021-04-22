@@ -64,6 +64,29 @@ const getAnimal = async (name) => {
   }
 };
 
+// Exercicio 6.2
+const findAnimalByAge = (idade) => (
+  // Adicione o código aqui.
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const arrayAnimals = Animals.filter((animal) => animal.age === idade);
+      if (arrayAnimals.length !== 0) {
+        resolve(arrayAnimals);
+      }
+      reject('Nenhum animal com essa idade!');
+    }, 100);
+  })
+);
+const getAnimalAge = async (idade) => {
+  // Adicione o código aqui.
+  const Animal = await findAnimalByAge(idade);
+
+  try {
+    return Animal;
+  } catch (error) {
+    return error;
+  }
+};
 module.exports = {
     uppercase,
     users,
@@ -71,4 +94,5 @@ module.exports = {
     getUserName,
     getRepos,
     getAnimal,
+    getAnimalAge
 };

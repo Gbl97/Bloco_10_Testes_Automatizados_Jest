@@ -1,4 +1,4 @@
-const { uppercase, users, findUserById, getUserName, fetch, getRepos, getAnimal } = require('./exercise.js');
+const { uppercase, users, findUserById, getUserName, fetch, getRepos, getAnimal, getAnimalAge } = require('./exercise.js');
 
 // Exercicio 1
 test('Verificando se a chamada da função callback transforma letras de uma palavra em maiúsculas', (done) => {
@@ -84,24 +84,47 @@ describe('Teste do Exercício 4', () => {
 // test('', () => console.log('2 - test'));
 // });
 
-// Exercicio 6.1
-
-  describe('Testando promise - findAnimalByName', () => {
-    describe('Quando existe o animal com o nome procurado', () => {
-      test('Retorne o objeto do animal', () => {
-        expect.assertions(1);
-        return getAnimal('Dorminhoco').then(animal => {
-          expect(animal).toEqual({ name: 'Dorminhoco', age: 1, type: 'Dog' });
+// Exercicio 6
+describe('Teste do exercício 6.1', () => {
+    describe('Testando promise - findAnimalByName', () => {
+      describe('Quando existe o animal com o nome procurado', () => {
+        test('Retorne o objeto do animal', () => {
+          expect.assertions(1);
+          return getAnimal('Dorminhoco').then(animal => {
+            expect(animal).toEqual({ name: 'Dorminhoco', age: 1, type: 'Dog' });
+          });
         });
       });
-    });
-  
-    describe('Quando não existe o animal com o nome procurado', () => {
-      test('Retorna um erro', () => {
-        expect.assertions(1);
-        return getAnimal('Bob').catch(error =>
-          expect(error).toEqual('Nenhum animal com esse nome!')
-        );
+    
+      describe('Quando não existe o animal com o nome procurado', () => {
+        test('Retorna um erro', () => {
+          expect.assertions(1);
+          return getAnimal('Bob').catch(error =>
+            expect(error).toEqual('Nenhum animal com esse nome!')
+          );
+        });
       });
-    });
+});
+
+
+// Exercicio 6.2
+describe('Teste do exercício 6.2', () => {
+    describe('Quando existe o animal com o nome procurado', () => {
+        test('Retorne o objeto do animal', () => {
+          expect.assertions(1);
+          return getAnimalAge(1).then(animal => {
+            expect(animal).toEqual([{ name: 'Dorminhoco', age: 1, type: 'Dog' }]);
+          });
+        });
+      });
+    
+      describe('Quando não existe o animal com o nome procurado', () => {
+        test('Retorna um erro', () => {
+          expect.assertions(1);
+          return getAnimalAge(6).catch(error =>
+            expect(error).toEqual('Nenhum animal com essa idade!')
+          );
+        });
+      });
+    })
 });
