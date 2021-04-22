@@ -53,18 +53,33 @@ describe('Teste dos Exercícios 2 e 3', () => {
         });
     });
 
-    // Exercicio 4
-    describe('Teste do Exercício 4', () => {
-        test('Testando o 1º Repositório ', async () => {
-           const repositorio_1 = await getRepos('https://api.github.com/orgs/tryber/repos').then(repos => {
-               expect(repos).toContainEqual('sd-01-week4-5-project-todo-list');
-           });
-        });
+    
+});
 
-        test('Testando o 2º Repositório ', async () => {
-            await getRepos('https://api.github.com/orgs/tryber/repos').then(repos => {
-               expect(repos).toContainEqual('sd-01-week4-5-project-meme-generator');
-           });
-        });
+// Exercicio 4
+describe('Teste do Exercício 4', () => {
+    test('Testando o 1º Repositório ', async () => {
+       const repositorio_1 = await getRepos('https://api.github.com/orgs/tryber/repos').then(repos => {
+           expect(repos).toContainEqual('sd-01-week4-5-project-todo-list');
+       });
     });
+
+    test('Testando o 2º Repositório ', async () => {
+        await getRepos('https://api.github.com/orgs/tryber/repos').then(repos => {
+           expect(repos).toContainEqual('sd-01-week4-5-project-meme-generator');
+       });
+    });
+});
+
+// Exercicio 5
+beforeEach(() => console.log('1 - beforeEach'));
+afterEach(() => console.log('1 - afterEach'));
+
+test('', () => console.log('1 - test'));
+
+describe('Scoped / Nested block', () => {
+beforeEach(() => console.log('2 - beforeEach'));
+afterEach(() => console.log('2 - afterEach'));
+
+test('', () => console.log('2 - test'));
 });
