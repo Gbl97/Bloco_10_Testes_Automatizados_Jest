@@ -72,3 +72,20 @@ test('Testes do Exercício 3.2', () => {
     //Quantas vezes foi chamada
     expect(numberRandom).toHaveBeenCalledTimes(7);
 });
+
+// Exercício 4
+const exercise = require('./exercise.js');
+
+jest.mock('./exercise');
+
+test('Testes do Exercício 4.1', () => {
+    exercise.upperWord.mockImplementation((string) => string.toLowerCase());
+    exercise.firstChar.mockImplementation((string) => string.charAt(string.length-1));
+    exercise.concatStrings
+    .mockImplementation((string1, string2, string3) => string1.concat(string2, string3));
+
+    //Testando o retorno da função
+    expect(exercise.upperWord('WORD')).toBe('word');
+    expect(exercise.firstChar('Word')).toBe('d');
+    expect(exercise.concatStrings('Hello', 'beautiful', 'world!')).toBe('Hellobeautifulworld!');
+});
